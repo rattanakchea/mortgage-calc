@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { MortgageFormComponent } from './mortgage-form/mortgage-form.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MortgageFormComponent
   ],
   imports: [
     BrowserModule
