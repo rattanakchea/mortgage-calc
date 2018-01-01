@@ -1,16 +1,17 @@
+<pre>{{mortgage | json}}</pre>
 <form>
   <div class="form-group row">
     <label for="homeValue" class="col-sm-3 col-form-label">Home Value</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" name="homeValue" [(ngModel)]="mortgage.homeValue">
+      <input type="number" class="form-control" name="homeValue" [(ngModel)]="mortgage.homeValue">
     </div>
   </div>
   <div class="form-group row">
     <label for="downPayment" class="col-sm-3 col-form-label">Down Payment</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" name="downPaymentAmount" [(ngModel)]="mortgage.downPaymentAmount">
+      <input type="number" class="form-control" name="downPaymentAmount" [(ngModel)]="mortgage.downPaymentAmount">
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       <input type="number" class="form-control" name="downPaymentRate" [(ngModel)]="mortgage.downPaymentRate">
     </div>
     <label for="homeValue" class="col-form-label">%</label>
@@ -18,7 +19,7 @@
   <div class="form-group row">
     <label for="loanAmount" class="col-sm-3 col-form-label">Loan Amount</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" name="loanAmount" [(ngModel)]="mortgage.loanAmount">
+      <input type="number" disabled class="form-control" name="loanAmount" [ngModel]="getLoanAmount()">
     </div>
   </div>
   <div class="form-group row">
@@ -39,10 +40,10 @@
   <div class="form-group row">
     <label for="downPayment" class="col-sm-3 col-form-label">Annual Taxes</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" name="downPaymentAmount" [(ngModel)]="mortgage.downPaymentAmount">
+      <input type="text" class="form-control" name="annualTax" [(ngModel)]="optionals.annualTax">
     </div>
-    <div class="col-sm-2">
-      <input type="number" class="form-control" name="downPaymentRate" [(ngModel)]="mortgage.downPaymentRate">
+    <div class="col-sm-3">
+      <input type="number" class="form-control" name="annualTaxInterest" [(ngModel)]="optionals.annualTaxInterest">
     </div>
     <label for="homeValue" class="col-form-label">%</label>
   </div>
