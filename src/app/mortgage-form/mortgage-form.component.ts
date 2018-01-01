@@ -17,7 +17,7 @@ export class MortgageFormComponent implements OnInit {
     downPaymentAmount?: number
   };
 
-  optionals: {
+  extras: {
     annualTaxInterest: number,
     annualTax?: number,
     loanAmount?: number
@@ -34,8 +34,8 @@ export class MortgageFormComponent implements OnInit {
     };
     let m = this.mortgage;
 
-    this.optionals = {
-      annualTaxInterest: .01   //1% of homeValue
+    this.extras = {
+      annualTaxInterest: 1   //1% of homeValue
 
     };
    this.initCalc();
@@ -43,14 +43,27 @@ export class MortgageFormComponent implements OnInit {
 
   initCalc() {
     this.mortgage.downPaymentAmount = this.mortgage.homeValue * this.mortgage.downPaymentRate / 100;
+    this.extras.annualTax = this.mortgage.homeValue * this.extras.annualTaxInterest/100; 
+  }
 
-    this.optionals.annualTax = this.mortgage.homeValue * this.optionals.annualTaxInterest; 
+  onHomeValueChange() {
+    console.log('home value change');
+    // update downpayment
+    this.initCalc();
+  }
+
+  onDownPaymentAmountChange() {
+    this.mortgage.downPaymentRate = this.mortgage.downPaymentAmount / this.mortgage.homeValue * 100;
+  }
+
+  onDownPaymentRateChange() {
+    this.mortgage.downPaymentAmount = this.mortgage.downPaymentRate/100 * this.mortgage.homeValue;    
   }
 
   getLoanAmount() {
     //console.log('getloan')
-    this.optionals.loanAmount = this.mortgage.homeValue - this.mortgage.downPaymentAmount;
-    return this.optionals.loanAmount;
+    this.extras.loanAmount = this.mortgage.homeValue - this.mortgage.downPaymentAmount;
+    return this.extras.loanAmount;
   }
 
   ngOnInit() {
