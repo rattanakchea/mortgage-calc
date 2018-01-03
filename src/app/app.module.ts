@@ -4,12 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MortgageFormComponent } from './mortgage-form/mortgage-form.component';
+import { MortgageResultComponent } from './mortgage-result/mortgage-result.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MortgageFormComponent
+    MortgageFormComponent,
+    MortgageResultComponent
   ],
   imports: [
     BrowserModule, FormsModule
