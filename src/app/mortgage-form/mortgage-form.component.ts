@@ -69,7 +69,7 @@ export class MortgageFormComponent implements OnInit {
   }
 
   calc() {
-    this.calcService.calc(this.mortgage);
+    this.calcService.calc(this.mortgage, this.extras);
   }
 
   ngOnInit() {

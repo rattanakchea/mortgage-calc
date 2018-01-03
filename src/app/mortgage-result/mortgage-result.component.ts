@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CalcService} from '../services/calc.service';
 
 @Component({
   selector: 'mortgage-result',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MortgageResultComponent implements OnInit {
 
-  constructor() { }
+  moPayment: any;
+
+  constructor(private calcService: CalcService ) {
+    // this.moPayment = this.calcService.getmoPayment();
+    // console.log('result: ', this.moPayment);
+
+    this.calcService.change.subscribe( () => {
+      this.moPayment = this.calcService.getmoPayment();
+      console.log('result: ', this.moPayment);
+    });
+  }
 
   ngOnInit() {
   }
