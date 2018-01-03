@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 
+import {CalcService} from '../services/calc.service';
+
 @Component({
   selector: 'mortgage-form',
   templateUrl: './mortgage-form.component.html',
@@ -23,7 +25,7 @@ export class MortgageFormComponent implements OnInit {
     loanAmount?: number
   }
 
-  constructor() {
+  constructor(private calcService: CalcService) {
     // default value
     this.mortgage = {
       homeValue: 300000,
@@ -64,6 +66,10 @@ export class MortgageFormComponent implements OnInit {
     //console.log('getloan')
     this.extras.loanAmount = this.mortgage.homeValue - this.mortgage.downPaymentAmount;
     return this.extras.loanAmount;
+  }
+
+  calc() {
+    this.calcService.calc(this.mortgage);
   }
 
   ngOnInit() {

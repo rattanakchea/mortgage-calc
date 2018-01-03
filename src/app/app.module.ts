@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MortgageFormComponent } from './mortgage-form/mortgage-form.component';
 import { MortgageResultComponent } from './mortgage-result/mortgage-result.component';
 
+import {CalcService} from './services/calc.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { MortgageResultComponent } from './mortgage-result/mortgage-result.compo
   imports: [
     BrowserModule, FormsModule
   ],
-  providers: [],
+  providers: [CalcService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
