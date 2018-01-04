@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CalcService} from '../services/calc.service';
+import { CalcService } from '../services/calc.service';
+import { MoPayment } from '../models/interfaces';
 
 @Component({
   selector: 'mortgage-result',
@@ -8,19 +9,28 @@ import {CalcService} from '../services/calc.service';
 })
 export class MortgageResultComponent implements OnInit {
 
-  moPayment: any;
+  moPayment: MoPayment;
 
-  constructor(private calcService: CalcService ) {
+  constructor(private calcService: CalcService) {
     // this.moPayment = this.calcService.getmoPayment();
     // console.log('result: ', this.moPayment);
 
-    this.calcService.change.subscribe( () => {
+    this.calcService.change.subscribe(() => {
       this.moPayment = this.calcService.getmoPayment();
       console.log('result: ', this.moPayment);
     });
   }
 
   ngOnInit() {
+  }
+
+  getTotal() {
+    if (this.moPayment) {
+      return this.moPayment.principleAndInterest +
+        this.moPayment.tax +
+        this.moPayment.insurance +
+        this.moPayment.pmi
+    }
   }
 
 }

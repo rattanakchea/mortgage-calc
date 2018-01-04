@@ -1,16 +1,12 @@
 import { Injectable, Output, EventEmitter} from '@angular/core';
+import { MoPayment } from '../models/interfaces';
 
 @Injectable()
 export class CalcService {
 
   @Output() change: EventEmitter<any> = new EventEmitter<any>();
 
-  moPayment: {
-    principleAndInterest: number,
-    tax: number,
-    insurance: number,
-    pmi: number
-  }
+  moPayment: MoPayment;
 
   getmoPayment() {
     return this.moPayment;
@@ -26,7 +22,7 @@ export class CalcService {
    * @param extras
    * @return moPayment
    */
-  calc (mortgage: any, extras: any) {
+  calc (mortgage: any, extras: any): void {
     
     console.log('mortgage object: ', mortgage);
     console.log('extras object: ', extras);
@@ -49,7 +45,6 @@ export class CalcService {
       insurance: 66.67,
       pmi: 0
     }
-
     this.change.emit(this.moPayment);
 
   }

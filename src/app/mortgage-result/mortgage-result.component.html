@@ -2,9 +2,9 @@
 
 <h2>Your Payment Per Month</h2>
 <ul>
-  <li>Principle & Interests</li>
-  <li>Real Estate Taxes</li>
-  <li>Insurance</li>
-  <li>PMI</li>
-  <li><strong>Total:</strong></li>
+  <li>Principle & Interests: {{ moPayment?.principleAndInterest}}</li>
+  <li>Real Estate Taxes: {{ moPayment?.tax }}</li>
+  <li>Insurance: {{ moPayment?.insurance }}</li>
+  <li>PMI: {{ moPayment?.pmi }}</li>
+  <li><strong>Total: {{ getTotal()}}</strong></li>
 </ul>
