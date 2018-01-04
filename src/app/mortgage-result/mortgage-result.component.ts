@@ -35,28 +35,29 @@ export class MortgageResultComponent implements OnInit {
     }
   }
 
-  chartOptions = {};
-  chartData = [];
-  chartLabels = [];
-
   buildChart() {
-    console.log('build chart');
-   this.chartOptions = {
-      responsive: true
-    };
-    this.chartData = [
-      { data: [330, 600, 260, 700], label: 'Account A' },
-      { data: [120, 455, 100, 340], label: 'Account B' },
-      { data: [45, 67, 800, 500], label: 'Account C' }
-    ];
-    this.chartLabels = ['January', 'February', 'Mars', 'April'];
+    this.doughnutChartLabels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+    this.doughnutChartData = [350, 450, 100];
+    this.doughnutChartType = 'doughnut';
   }
 
   onChartClick(event) {
     console.log(event);
   }
 
-
+   // Doughnut
+   public doughnutChartLabels:string[] = ['test'];
+   public doughnutChartData:number[] = [2];
+   public doughnutChartType:string = 'doughnut';
+  
+   // events
+   public chartClicked(e:any):void {
+     console.log(e);
+   }
+  
+   public chartHovered(e:any):void {
+     console.log(e);
+   }
 
 
 }

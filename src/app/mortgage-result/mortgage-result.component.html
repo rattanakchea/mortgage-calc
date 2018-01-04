@@ -11,14 +11,11 @@
 
 
 <h3>Chart</h3>
-<div>
-  <canvas
-      baseChart
-      [chartType]="'line'"
-      [datasets]="chartData"
-      [labels]="chartLabels"
-      [options]="chartOptions"
-      [legend]="true"
-      (chartClick)="onChartClick($event)">
-  </canvas>
+<div style="display: block">
+  <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
 </div>
