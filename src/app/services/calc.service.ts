@@ -39,6 +39,7 @@ export class CalcService {
     //abstraction
     //@TODO Mortgage formula
 
+    // added pure function
     this.moPayment = {
       principleAndInterest: 1145.80,
       tax: 300,

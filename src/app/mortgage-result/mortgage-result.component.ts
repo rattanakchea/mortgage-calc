@@ -15,6 +15,7 @@ export class MortgageResultComponent implements OnInit {
     // this.moPayment = this.calcService.getmoPayment();
     // console.log('result: ', this.moPayment);
 
+    // @TODO subcribe to NEW mortgage data
     this.calcService.change.subscribe(() => {
       this.moPayment = this.calcService.getmoPayment();
       console.log('result: ', this.moPayment);
