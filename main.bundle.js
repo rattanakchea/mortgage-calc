@@ -20,7 +20,7 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-md navbar-dark fixed-top bg-dark\">\n  <a class=\"navbar-brand\" href=\"#\">{{title}}</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home\n          <span class=\"sr-only\">(current)</span>\n        </a>\n      </li>\n      <li class=\"nav-item dropdown\">\n        <a class=\"nav-link dropdown-toggle\" href=\"http://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">Dropdown</a>\n        <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n          <a class=\"dropdown-item\" href=\"#\">Action</a>\n          <a class=\"dropdown-item\" href=\"#\">Another action</a>\n          <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n        </div>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<main role=\"main\">\n  <!-- Main jumbotron for a primary marketing message or call to action -->\n  <div class=\"jumbotron\">\n    <div class=\"container\">\n      <h1 class=\"display-3\">Mortage Calculator</h1>\n      <p>User friendly mortage calculator for your home mortage.</p>\n    </div>\n  </div>\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <mortgage-form></mortgage-form>\n      </div>\n      <div class=\"col-md-6\">\n        <mortgage-result></mortgage-result>\n      </div>\n    </div>\n\n    <hr>\n\n  </div>\n  <!-- /container -->\n\n</main>\n\n<footer class=\"container\">\n  <p>&copy; {{title}} 2017</p>\n</footer>"
+module.exports = "<nav class=\"navbar navbar-expand-md navbar-dark fixed-top bg-dark\">\n  <a class=\"navbar-brand\" href=\"#\">{{title}}</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExampleDefault\" aria-controls=\"navbarsExampleDefault\"\n    aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExampleDefault\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home\n          <span class=\"sr-only\">(current)</span>\n        </a>\n      </li>\n      <li class=\"nav-item dropdown\">\n        <a class=\"nav-link dropdown-toggle\" href=\"http://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n          aria-expanded=\"false\">Dropdown</a>\n        <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">\n          <a class=\"dropdown-item\" href=\"#\">Action</a>\n          <a class=\"dropdown-item\" href=\"#\">Another action</a>\n          <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n        </div>\n      </li>\n    </ul>\n  </div>\n</nav>\n\n<main role=\"main\">\n  <!-- Main jumbotron for a primary marketing message or call to action -->\n  <div class=\"jumbotron\">\n    <div class=\"container\">\n      <h1 class=\"display-3\">Mortage Calculator</h1>\n      <p>User friendly mortage calculator for your home mortage.</p>\n    </div>\n  </div>\n\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <mortgage-form></mortgage-form>\n      </div>\n      <div class=\"col-md-6\">\n        <mortgage-result></mortgage-result>\n      </div>\n    </div>\n    <div class=\"row\">\n      <button class=\"btn btn-success mx-auto\" (click)=\"showMore = true\">Compare</button>\n    </div>\n    <hr>\n  </div>\n\n  <div class=\"container\" *ngIf=\"showMore\">\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n        <mortgage-form></mortgage-form>\n      </div>\n      <div class=\"col-md-6\">\n        <mortgage-result></mortgage-result>\n      </div>\n    </div>\n  </div>\n  <!-- /container -->\n\n</main>\n\n<footer class=\"container\">\n  <p>&copy; {{title}} 2017</p>\n</footer>"
 
 /***/ }),
 
@@ -57,6 +57,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var AppComponent = (function () {
     function AppComponent() {
+        this.showMore = false;
         this.title = 'Mortgage Calculator';
     }
     AppComponent = __decorate([
@@ -228,7 +229,7 @@ var MortgageFormComponent = (function () {
 /***/ "../../../../../src/app/mortgage-result/mortgage-result.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<pre>{{ moPayment | json }}</pre>\n\n<h2>Your Payment Per Month</h2>\n<ul>\n  <li>Principle & Interests: {{ moPayment?.principleAndInterest}}</li>\n  <li>Real Estate Taxes: {{ moPayment?.tax }}</li>\n  <li>Insurance: {{ moPayment?.insurance }}</li>\n  <li>PMI: {{ moPayment?.pmi }}</li>\n  <li><strong>Total: {{ getTotal()}}</strong></li>\n</ul>\n\n\n<h3>Chart</h3>\n<div style=\"display: block\">\n  <canvas baseChart\n              [data]=\"doughnutChartData\"\n              [labels]=\"doughnutChartLabels\"\n              [chartType]=\"doughnutChartType\"\n              (chartHover)=\"chartHovered($event)\"\n              (chartClick)=\"chartClicked($event)\"></canvas>\n</div>"
+module.exports = "<pre>{{ moPayment | json }}</pre>\n\n<h2>Your Payment Per Month</h2>\n<ul>\n  <li>Principle & Interests: {{ moPayment?.principleAndInterest}}</li>\n  <li>Real Estate Taxes: {{ moPayment?.tax }}</li>\n  <li>Insurance: {{ moPayment?.insurance }}</li>\n  <li>PMI: {{ moPayment?.pmi }}</li>\n  <li><strong>Total: {{ getTotal()}}</strong></li>\n</ul>\n\n<h3>Chart</h3>\n<div style=\"display: block\">\n  <canvas baseChart\n              [data]=\"doughnutChartData\"\n              [labels]=\"doughnutChartLabels\"\n              [chartType]=\"doughnutChartType\"\n              (chartHover)=\"chartHovered($event)\"\n              (chartClick)=\"chartClicked($event)\"></canvas>\n</div>"
 
 /***/ }),
 
@@ -275,9 +276,12 @@ var MortgageResultComponent = (function () {
         var _this = this;
         this.calcService = calcService;
         // Doughnut
-        this.doughnutChartLabels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-        this.doughnutChartData = [1, 1, 1];
+        //  public doughnutChartLabels:string[] = [];
+        //  public doughnutChartData:number[] = [];
+        this.doughnutChartLabels = ['Principle + Interest', 'Taxes', 'Insurance'];
+        this.doughnutChartData = [0, 0, 0];
         this.doughnutChartType = 'doughnut';
+        // @TODO subcribe to NEW mortgage data
         this.calcService.change.subscribe(function () {
             _this.moPayment = _this.calcService.getmoPayment();
             console.log('result: ', _this.moPayment);
@@ -295,8 +299,8 @@ var MortgageResultComponent = (function () {
         }
     };
     MortgageResultComponent.prototype.buildChart = function () {
-        this.doughnutChartLabels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-        this.doughnutChartData = [350, 450, 100];
+        this.doughnutChartLabels = ['Principle + Interest', 'Taxes', 'Insurance'];
+        this.doughnutChartData = [this.moPayment.principleAndInterest, this.moPayment.tax, this.moPayment.insurance];
         this.doughnutChartType = 'doughnut';
     };
     MortgageResultComponent.prototype.onChartClick = function (event) {
@@ -366,6 +370,7 @@ var CalcService = (function () {
         var moPMI = 1; // dummy number for now
         //abstraction
         //@TODO Mortgage formula
+        // added pure function
         this.moPayment = {
             principleAndInterest: 1145.80,
             tax: 300,
