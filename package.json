@@ -8,7 +8,9 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pre-deploy": "ng build --base-href 'https://rattanakchea.github.io/mortgage-calc/'",
+    "deploy": "ngh --branch=master"
   },
   "private": true,
   "dependencies": {
