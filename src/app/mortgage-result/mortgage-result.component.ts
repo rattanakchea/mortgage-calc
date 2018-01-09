@@ -36,8 +36,8 @@ export class MortgageResultComponent implements OnInit {
   }
 
   buildChart() {
-    this.doughnutChartLabels = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-    this.doughnutChartData = [350, 450, 100];
+    this.doughnutChartLabels = ['Principle + Interest', 'Taxes', 'Insurance'];
+    this.doughnutChartData = [this.moPayment.principleAndInterest, this.moPayment.tax, this.moPayment.insurance];
 
     this.doughnutChartType = 'doughnut';
   }
@@ -47,8 +47,10 @@ export class MortgageResultComponent implements OnInit {
   }
 
    // Doughnut
-   public doughnutChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-   public doughnutChartData:number[] = [1, 1, 1];
+  //  public doughnutChartLabels:string[] = [];
+  //  public doughnutChartData:number[] = [];
+   public doughnutChartLabels:string[] = ['Principle + Interest', 'Taxes', 'Insurance'];
+   public doughnutChartData:number[] = [0, 0, 0];
    public doughnutChartType:string = 'doughnut';
   
    // events

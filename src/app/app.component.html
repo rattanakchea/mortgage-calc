@@ -43,9 +43,21 @@
         <mortgage-result></mortgage-result>
       </div>
     </div>
-
+    <div class="row">
+      <button class="btn btn-success mx-auto" (click)="showMore = true">Compare</button>
+    </div>
     <hr>
+  </div>
 
+  <div class="container" *ngIf="showMore">
+    <div class="row">
+      <div class="col-md-6">
+        <mortgage-form></mortgage-form>
+      </div>
+      <div class="col-md-6">
+        <mortgage-result></mortgage-result>
+      </div>
+    </div>
   </div>
   <!-- /container -->
 
