@@ -9,6 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "deploy-s3": "ng build && aws s3 cp dist s3://app-mortgage-calculator --recursive",
     "pre-deploy": "ng build --base-href 'https://rattanakchea.github.io/mortgage-calc/'",
     "deploy": "ngh --branch=master"
   },
